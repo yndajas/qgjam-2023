@@ -74,3 +74,4 @@
 - spawn player in middle bottom of screen
 - allow player to move left and right
 - prevent player going off screen
+- add bullet scene and script and randomise sprite

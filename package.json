@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "lint": "prettier --check '**/*.md'",
-    "lint:fix": "prettier --write '**/*.md'"
+    "lint": "prettier --check '**/*.md' && sort-package-json --check",
+    "lint:fix": "prettier --write '**/*.md' && sort-package-json",
   },
   "devDependencies": {
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "sort-package-json": "^2.6.0"
   }
 }

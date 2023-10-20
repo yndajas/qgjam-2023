@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# script/test: Run the test suite for the application.
+
+bun run lint

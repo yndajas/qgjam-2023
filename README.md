@@ -15,9 +15,11 @@ Made for [The Queerness and Games Jam 2023][qgjam-2023]
 [Explosion sprite sheet][explosion-sprite-sheet] and [guide][explosion-tutorial]
 by [PlayWithFurcifer][play-with-furcifer]
 
+<!-- prettier-ignore-start -->
 [explosion-sprite-sheet]: https://github.com/PlayWithFurcifer/godot-particle-systems-guide/blob/main/Explosion_Sheet.png
 [explosion-tutorial]: https://www.youtube.com/watch?v=F1Fyj3Lh_Pc&t=253s
 [flag-sprites]: https://rmocci.itch.io/pixel-special
 [play-with-furcifer]: https://github.com/PlayWithFurcifer
 [qgjam-2023]: https://itch.io/jam/qgjam-2023
 [rob-mocci]: https://rmocci.itch.io
+<!-- prettier-ignore-end -->

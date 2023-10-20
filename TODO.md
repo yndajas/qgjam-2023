@@ -57,6 +57,7 @@
 - randomise whether enemy is sprite 0 or 1 on instantiation, favouring 0
 - make player invulnerable for N seconds after being hit
 - make enemy invulnerable for N seconds after being hit
+- add pause state (options/P) with resume, restart, and return to main prompts
 - spawn enemies from both sides? How to manage overlap?
 - make the bullets queer iconography - either changing as you power up, or
   customisable in a menu

@@ -16,13 +16,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 2)
 
 	move_and_slide()
+	reset_if_beyond_edge()
 
-	if is_beyond_edge(Edge.LEFT):
-		reset_to_edge(Edge.LEFT)
-	elif is_beyond_edge(Edge.RIGHT):
-		reset_to_edge(Edge.RIGHT)
-
-func is_beyond_edge(edge: int) -> bool:
+func has_hit_edge(edge: int) -> bool:
 	if is_left_edge(edge):
 		return x_position() - player_edge_offset < PLAYABLE_LEFT_EDGE
 	else:
@@ -30,6 +26,12 @@ func is_beyond_edge(edge: int) -> bool:
 
 func is_left_edge(edge: int) -> bool:
 	return edge == Edge.LEFT
+
+func reset_if_beyond_edge() -> void:
+	if has_hit_edge(Edge.LEFT):
+		reset_to_edge(Edge.LEFT)
+	elif has_hit_edge(Edge.RIGHT):
+		reset_to_edge(Edge.RIGHT)
 
 func reset_to_edge(edge: int) -> void:
 	var target_x_position: int

@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5jjbttu580bu"]
+[gd_scene load_steps=5 format=3 uid="uid://b5jjbttu580bu"]
 
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_80y7t"]
 [ext_resource type="Texture2D" uid="uid://byn1h5gyio76d" path="res://assets/images/sprites/player.png" id="1_gsgms"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_exveg"]
@@ -17,6 +18,7 @@ animations = [{
 size = Vector2(96, 96)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_80y7t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_exveg")

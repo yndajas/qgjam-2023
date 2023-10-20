@@ -1,4 +1,5 @@
 {
+  "*.json": "prettier --check",
   "*.md": "prettier --check",
   "package.json": "sort-package-json --check"
 }

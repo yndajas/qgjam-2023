@@ -1,6 +1,5 @@
 # To do
 
-- prevent player going off screen
 - on button press:
   - instantiate bullet on/near player
   - move bullet up screen
@@ -74,3 +73,4 @@
 - project settings
 - spawn player in middle bottom of screen
 - allow player to move left and right
+- prevent player going off screen

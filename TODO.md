@@ -4,7 +4,6 @@
   - instantiate bullet on/near player
   - move bullet up screen
   - play sound effect
-- free/remove bullet instance when off screen
 - instantiate enemy as sprite 0 off screen left
 - move enemy right every physics process
 - free/remove enemy instance when off screen right
@@ -75,3 +74,4 @@
 - allow player to move left and right
 - prevent player going off screen
 - add bullet scene and script and randomise sprite
+- free/remove bullet instance when off screen

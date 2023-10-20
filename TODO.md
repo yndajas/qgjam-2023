@@ -1,6 +1,5 @@
 # To do
 
-- spawn player in middle bottom of screen
 - allow player to move left and right
 - prevent player going off screen
 - on button press:
@@ -74,3 +73,4 @@
   wings; 1: one white black and white wing, one rainbow; 2: rainbow wings)
 - rainbow explosion particle effect
 - project settings
+- spawn player in middle bottom of screen

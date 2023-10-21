@@ -7,12 +7,14 @@ var score: int = 0
 @onready var converts_count_text: RichTextLabel = $InformationPanel/ConvertsCountText
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var information_panel: ColorRect = $InformationPanel
+@onready var player: CharacterBody2D = $Player
 
 
 func _ready() -> void:
 	uncollected_flags.shuffle()
 	prepare_information_panel()
 	spawn_enemy()
+	player.connect("hit", on_player_hit)
 
 
 func _on_enemy_spawn_timer_timeout() -> void:
@@ -30,11 +32,24 @@ func collect_flag() -> void:
 	)
 
 
+func lose_flag() -> void:
+	var flag = collected_flags.pop_back()
+	var index_to_insert_at: int = randi_range(0, uncollected_flags.size())
+	uncollected_flags.insert(index_to_insert_at, flag)
+
+
 func on_enemy_converted() -> void:
 	score += 1
 	if collected_flags.size() < 14:
 		collect_flag()
 	update_score_counter()
+
+
+func on_player_hit() -> void:
+	if collected_flags.size():
+		lose_flag()
+	else:
+		print_debug("game over")
 
 
 func prepare_information_panel() -> void:

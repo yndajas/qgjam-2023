@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal hit
 enum Edge { LEFT, RIGHT }
 const SPEED: float = 600.0
 @export var fire_sounds: Array[AudioStreamWAV]
@@ -44,7 +45,7 @@ func is_left_edge(edge: int) -> bool:
 
 
 func on_hit() -> void:
-	print_debug("player_hit")
+	emit_signal("hit")
 
 
 func reset_if_beyond_edge() -> void:

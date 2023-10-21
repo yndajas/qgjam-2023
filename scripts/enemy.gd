@@ -5,6 +5,7 @@ const EXPECTED_SPRITE_SIZE = 96
 const MINIMUM_SPAWN_Y = EXPECTED_EDGE_OFFSET + 24
 const MAXIMUM_SPAWN_Y = floor(Global.PLAYABLE_BOTTOM_EDGE / 2.0) - EXPECTED_SPRITE_SIZE
 const SPEED: float = 150.0
+@export var fire_sounds: Array[AudioStreamWAV]
 var gaysplosion_scene: PackedScene = preload("res://scenes/gaysplosion.tscn")
 var straightness: int = 6
 @onready var fire_timer: Timer = $FireTimer
@@ -36,7 +37,8 @@ func _on_fire_timer_timeout() -> void:
 
 func fire() -> void:
 	var bullet: RigidBody2D = Global.bullet_scene.instantiate()
-	bullet.init(self)
+	var fire_sound_index = 0 if straightness > 3 else 1
+	bullet.init(self, fire_sounds[fire_sound_index])
 
 
 func is_off_screen() -> bool:

@@ -10,6 +10,10 @@
 size = Vector2(16, 16)
 
 [node name="Bullet" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 3
+max_contacts_reported = 1
+contact_monitor = true
 linear_velocity = Vector2(2.08165e-12, -600)
 script = ExtResource("1_r42ri")
 fire_sounds = Array[AudioStreamWAV]([ExtResource("2_eox8w"), ExtResource("3_mbbqu"), ExtResource("4_i7nne")])
@@ -26,3 +30,5 @@ shape = SubResource("RectangleShape2D_q8exr")
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
 autoplay = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

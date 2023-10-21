@@ -22,5 +22,9 @@ func is_off_screen() -> bool:
 	return x_position() - enemy_edge_offset > Global.PLAYABLE_RIGHT_EDGE
 
 
+func on_hit() -> void:
+	print_debug("enemy_hit")
+
+
 func x_position() -> float:
 	return self.global_position[0]

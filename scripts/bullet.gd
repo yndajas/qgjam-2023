@@ -24,6 +24,12 @@ func _physics_process(_delta: float) -> void:
 		queue_free()
 
 
+func _on_body_entered(body: Node) -> void:
+	if body.has_method("on_hit"):
+		body.on_hit()
+		queue_free()
+
+
 func is_off_screen() -> bool:
 	return is_off_screen_bottom() or is_off_screen_top()
 

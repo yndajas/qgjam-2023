@@ -17,3 +17,7 @@ func spawn_enemy() -> void:
 		-enemy.EXPECTED_ENEMY_EDGE_OFFSET, enemy.EXPECTED_ENEMY_EDGE_OFFSET + 24
 	)
 	get_tree().get_root().add_child.call_deferred(enemy)
+
+
+func _on_enemy_spawn_timer_timeout() -> void:
+	spawn_enemy()

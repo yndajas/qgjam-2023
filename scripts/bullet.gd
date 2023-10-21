@@ -4,7 +4,7 @@ enum Edge { BOTTOM, TOP }
 const EXPECTED_EDGE_OFFSET: int = 8
 const SPRITE_COUNT: int = 6
 const SPRITE_SCALE: int = 4
-@export var fire_sounds: Array[AudioStreamWAV]
+@export var player_fire_sounds: Array[AudioStreamWAV]
 var sprite_index: int
 @onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 @onready var sprite: Sprite2D = $Sprite2D
@@ -64,7 +64,7 @@ func is_off_screen_top() -> bool:
 
 
 func play_fire_sound() -> void:
-	sfx_player.stream = fire_sounds.pick_random()
+	sfx_player.stream = player_fire_sounds.pick_random()
 	sfx_player.play()
 
 

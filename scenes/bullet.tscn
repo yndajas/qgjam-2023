@@ -16,7 +16,7 @@ max_contacts_reported = 1
 contact_monitor = true
 linear_velocity = Vector2(2.08165e-12, -600)
 script = ExtResource("1_r42ri")
-fire_sounds = Array[AudioStreamWAV]([ExtResource("2_eox8w"), ExtResource("3_mbbqu"), ExtResource("4_i7nne")])
+player_fire_sounds = Array[AudioStreamWAV]([ExtResource("2_eox8w"), ExtResource("3_mbbqu"), ExtResource("4_i7nne")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

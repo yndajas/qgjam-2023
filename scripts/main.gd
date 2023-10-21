@@ -2,12 +2,14 @@ extends Node2D
 
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var score: int = 0
+@onready var converts_count_text: RichTextLabel = $InformationPanel/ConvertsCountText
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var information_panel: ColorRect = $InformationPanel
 
 
 func _ready() -> void:
 	information_panel.size.x = Global.PLAYABLE_LEFT_EDGE
+	update_score_counter()
 	spawn_enemy()
 
 
@@ -19,7 +21,7 @@ func _on_enemy_spawn_timer_timeout() -> void:
 
 func on_enemy_converted() -> void:
 	score += 1
-	print_debug(score)
+	update_score_counter()
 
 
 func spawn_enemy() -> void:
@@ -45,3 +47,7 @@ func set_enemy_direction_left(enemy: CharacterBody2D) -> void:
 func set_enemy_direction_right(enemy: CharacterBody2D) -> void:
 	enemy.global_position.x = Global.PLAYABLE_RIGHT_EDGE + enemy.EXPECTED_EDGE_OFFSET
 	enemy.velocity.x = -enemy.SPEED
+
+
+func update_score_counter() -> void:
+	converts_count_text.text = "[center]" + "%04d" % score

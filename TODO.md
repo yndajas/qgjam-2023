@@ -1,6 +1,5 @@
 # To do
 
-- add player score indicator
 - on enemy/player bullet collision:
   - if enemy is sprite 0 or 1
     - play hit sound effect
@@ -82,3 +81,4 @@
 - play sound effect on enemy bullet instantiation
 - spawn enemies from both sides? How to manage overlap?
 - add player score variable
+- add player score indicator

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://crgnvs7u0lb24"]
+[gd_scene load_steps=4 format=3 uid="uid://crgnvs7u0lb24"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_0pve6"]
 [ext_resource type="PackedScene" uid="uid://b5jjbttu580bu" path="res://scenes/player.tscn" id="1_xxnlq"]
+[ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="3_fo0jw"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0pve6")
@@ -18,5 +19,23 @@ autostart = true
 offset_right = 200.0
 offset_bottom = 720.0
 color = Color(0.0117647, 0.235294, 0.658824, 1)
+
+[node name="ConvertsText" type="RichTextLabel" parent="InformationPanel"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 48.0
+theme = ExtResource("3_fo0jw")
+bbcode_enabled = true
+text = "[center]Converts"
+
+[node name="ConvertsCountText" type="RichTextLabel" parent="InformationPanel"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 200.0
+offset_bottom = 96.0
+theme = ExtResource("3_fo0jw")
+bbcode_enabled = true
+text = "[center]0000"
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

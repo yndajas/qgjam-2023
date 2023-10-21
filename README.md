@@ -12,6 +12,8 @@ Made for [The Queerness and Games Jam 2023][qgjam-2023]
 
 [Flag sprites][flag-sprites] by [Rob Mocci][rob-mocci]
 
+[Font][pixel-font] by Jayvee Enaguas
+
 [Explosion sprite sheet][explosion-sprite-sheet] and [guide][explosion-tutorial]
 by [PlayWithFurcifer][play-with-furcifer]
 
@@ -20,6 +22,7 @@ by [PlayWithFurcifer][play-with-furcifer]
 [explosion-tutorial]: https://www.youtube.com/watch?v=F1Fyj3Lh_Pc&t=253s
 [flag-sprites]: https://rmocci.itch.io/pixel-special
 [play-with-furcifer]: https://github.com/PlayWithFurcifer
+[pixel-font]: https://www.dafont.com/pixel-operator.font
 [qgjam-2023]: https://itch.io/jam/qgjam-2023
 [rob-mocci]: https://rmocci.itch.io
 <!-- prettier-ignore-end -->

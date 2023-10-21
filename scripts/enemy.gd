@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const EXPECTED_ENEMY_EDGE_OFFSET: int = 48
+const EXPECTED_EDGE_OFFSET: int = 48
 const SPEED: float = 150.0
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]

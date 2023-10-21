@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 enum Edge { BOTTOM, TOP }
-const EXPECTED_BULLET_EDGE_OFFSET: int = 8
+const EXPECTED_EDGE_OFFSET: int = 8
 const SPRITE_COUNT: int = 6
 const SPRITE_SCALE: int = 4
 @export var fire_sounds: Array[AudioStreamWAV]

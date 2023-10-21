@@ -6,10 +6,11 @@ const PLAYER_GUN_OFFSET: int = 40
 const SPEED: float = 600.0
 @onready var player_edge_offset: float = $AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", 0).get_size()[0] / 2.0
 var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+var bullet_cooldown: float = 0
 
 enum Edge { LEFT, RIGHT }
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 
 	if direction:
@@ -20,13 +21,15 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	reset_if_beyond_edge()
 
-	if Input.is_action_just_pressed("fire"):
+	bullet_cooldown -= delta
+	if Input.is_action_pressed("fire") && bullet_cooldown <= 0:
 		fire()
 
 func fire() -> void:
 	var bullet: RigidBody2D = bullet_scene.instantiate()
 	bullet.global_position = Vector2(x_position(), y_position() - PLAYER_GUN_OFFSET - bullet.EXPECTED_BULLET_EDGE_OFFSET)
 	get_tree().get_root().add_child(bullet)
+	bullet_cooldown = 0.2
 
 func has_hit_edge(edge: int) -> bool:
 	if is_left_edge(edge):

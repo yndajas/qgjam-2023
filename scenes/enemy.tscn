@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcw53nqih5gor"]
+[gd_scene load_steps=12 format=3 uid="uid://bcw53nqih5gor"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_abaap"]
 [ext_resource type="Texture2D" uid="uid://bfooi7navi4bt" path="res://assets/images/sprites/enemies.png" id="1_v2bjt"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://bt5gipfymyyb5" path="res://assets/audio/sfx/converted_1.wav" id="3_aa2t3"]
 [ext_resource type="AudioStream" uid="uid://cx7jqr8chhrji" path="res://assets/audio/sfx/enemy_fire_1.wav" id="3_igv7m"]
 [ext_resource type="AudioStream" uid="uid://dwoy4w6jeb3j4" path="res://assets/audio/sfx/converted_2.wav" id="4_7e4k7"]
+[ext_resource type="AudioStream" uid="uid://bq5685yerscx8" path="res://assets/audio/sfx/converted_3.wav" id="5_i2mbj"]
+[ext_resource type="AudioStream" uid="uid://djjifi8w2fqrg" path="res://assets/audio/sfx/converted_4.wav" id="6_cicca"]
+[ext_resource type="AudioStream" uid="uid://sxj6lxtao3np" path="res://assets/audio/sfx/converted_5.wav" id="7_ptkfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y46j2"]
 size = Vector2(96, 96)
@@ -15,7 +18,7 @@ size = Vector2(96, 96)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_abaap")
-converted_sounds = Array[AudioStreamWAV]([ExtResource("2_p0yhq"), ExtResource("3_aa2t3"), ExtResource("4_7e4k7")])
+converted_sounds = Array[AudioStreamWAV]([ExtResource("2_p0yhq"), ExtResource("3_aa2t3"), ExtResource("4_7e4k7"), ExtResource("5_i2mbj"), ExtResource("6_cicca"), ExtResource("7_ptkfu")])
 fire_sounds = Array[AudioStreamWAV]([ExtResource("2_haq55"), ExtResource("3_igv7m")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

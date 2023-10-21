@@ -4,7 +4,7 @@ enum Edge { LEFT, RIGHT }
 const SPEED: float = 600.0
 @export var fire_sounds: Array[AudioStreamWAV]
 var bullet_cooldown: float = 0
-@onready var player_edge_offset: float = $Sprite2D.get_rect().size[0] / 2.0
+@onready var edge_offset: float = $Sprite2D.get_rect().size[0] / 2.0
 
 
 func _physics_process(delta: float) -> void:
@@ -34,9 +34,9 @@ func fire() -> void:
 
 func has_hit_edge(edge: int) -> bool:
 	if is_left_edge(edge):
-		return x_position() - player_edge_offset < Global.PLAYABLE_LEFT_EDGE
+		return x_position() - edge_offset < Global.PLAYABLE_LEFT_EDGE
 
-	return x_position() + player_edge_offset > Global.PLAYABLE_RIGHT_EDGE
+	return x_position() + edge_offset > Global.PLAYABLE_RIGHT_EDGE
 
 
 func is_left_edge(edge: int) -> bool:
@@ -58,9 +58,9 @@ func reset_to_edge(edge: int) -> void:
 	var target_x_position: float
 
 	if is_left_edge(edge):
-		target_x_position = ceilf(Global.PLAYABLE_LEFT_EDGE + player_edge_offset)
+		target_x_position = ceilf(Global.PLAYABLE_LEFT_EDGE + edge_offset)
 	else:
-		target_x_position = floor(Global.PLAYABLE_RIGHT_EDGE - player_edge_offset)
+		target_x_position = floor(Global.PLAYABLE_RIGHT_EDGE - edge_offset)
 
 	self.global_position = Vector2(target_x_position, y_position())
 

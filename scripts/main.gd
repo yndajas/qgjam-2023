@@ -9,6 +9,8 @@ var score: int = 0
 @onready var controls_text: RichTextLabel = $InformationPanel/ControlsText
 @onready var converts_count_text: RichTextLabel = $InformationPanel/ConvertsCountText
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
+@onready var game_over_text: RichTextLabel = $GameOverText
+@onready var game_over_text_flash_timer: Timer = $GameOverText/FlashTimer
 @onready var information_panel: ColorRect = $InformationPanel
 @onready var player: CharacterBody2D = $Player
 @onready var sfx_player: AudioStreamPlayer = $SfxPlayer
@@ -26,6 +28,15 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
 	enemy_spawn_timer.wait_time = randf_range(2, 6)
 	enemy_spawn_timer.start()
+
+
+func _on_game_over_flash_timer_timeout() -> void:
+	game_over_text.set_visible(!game_over_text.visible)
+
+	if game_over_text.visible:
+		game_over_text_flash_timer.start(3)
+	else:
+		game_over_text_flash_timer.start(0.85)
 
 
 func collect_flag() -> void:
@@ -54,6 +65,8 @@ func on_enemy_converted() -> void:
 
 func on_game_over() -> void:
 	enemy_spawn_timer.stop()
+	game_over_text.set_visible(true)
+	game_over_text_flash_timer.start()
 	sfx_player.stream = game_over_sounds.pick_random()
 	sfx_player.play()
 

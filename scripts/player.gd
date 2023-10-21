@@ -3,7 +3,6 @@ extends CharacterBody2D
 enum Edge { LEFT, RIGHT }
 const SPEED: float = 600.0
 var bullet_cooldown: float = 0
-var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
 @onready var player_edge_offset: float = (
 	$AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", 0).get_size()[0] / 2.0
 )
@@ -29,7 +28,7 @@ func _physics_process(delta: float) -> void:
 
 
 func fire() -> void:
-	var bullet: RigidBody2D = bullet_scene.instantiate()
+	var bullet: RigidBody2D = Global.bullet_scene.instantiate()
 	bullet.global_position = Vector2(
 		x_position(), y_position() - Global.CHARACTER_GUN_OFFSET - bullet.EXPECTED_EDGE_OFFSET
 	)

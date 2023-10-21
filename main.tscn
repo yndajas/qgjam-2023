@@ -47,4 +47,14 @@ theme = ExtResource("3_fo0jw")
 bbcode_enabled = true
 text = "[center]Solidarity"
 
+[node name="ControlsText" type="RichTextLabel" parent="InformationPanel"]
+layout_mode = 0
+offset_top = 648.0
+offset_right = 240.0
+offset_bottom = 664.0
+theme = ExtResource("3_fo0jw")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]P/options: pause"
+
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

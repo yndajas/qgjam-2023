@@ -18,7 +18,6 @@ var straightness: int = 6
 
 
 func _ready() -> void:
-	velocity.x = SPEED
 	start_fire_timer()
 
 

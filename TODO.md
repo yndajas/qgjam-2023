@@ -35,7 +35,6 @@
 - make player invulnerable for N seconds after being hit
 - make enemy invulnerable for N seconds after being hit
 - add pause state (options/P) with resume, restart, and return to main prompts
-- spawn enemies from both sides? How to manage overlap?
 - make the bullets queer iconography - either changing as you power up, or
   customisable in a menu
 - power up player bullets as flag collection grows
@@ -82,3 +81,4 @@
 - on player/enemy bullet collision:
   - derender enemy bullet
 - play sound effect on enemy bullet instantiation
+- spawn enemies from both sides? How to manage overlap?

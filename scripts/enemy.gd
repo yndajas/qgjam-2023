@@ -5,6 +5,7 @@ const EXPECTED_SPRITE_SIZE = 96
 const MINIMUM_SPAWN_Y = EXPECTED_EDGE_OFFSET + 24
 const MAXIMUM_SPAWN_Y = floor(Global.PLAYABLE_BOTTOM_EDGE / 2.0) - EXPECTED_SPRITE_SIZE
 const SPEED: float = 150.0
+@onready var fire_timer: Timer = $FireTimer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]
 @onready var enemy_edge_offset: float = ceilf(sprite_size / 2.0)
@@ -12,6 +13,7 @@ const SPEED: float = 150.0
 
 func _ready() -> void:
 	velocity.x = SPEED
+	start_fire_timer()
 
 
 func _physics_process(_delta: float) -> void:
@@ -23,6 +25,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_fire_timer_timeout() -> void:
 	fire()
+	start_fire_timer()
 
 
 func fire() -> void:
@@ -36,6 +39,11 @@ func is_off_screen() -> bool:
 
 func on_hit() -> void:
 	print_debug("enemy_hit")
+
+
+func start_fire_timer() -> void:
+	fire_timer.wait_time = randf_range(0.5, 2)
+	fire_timer.start()
 
 
 func x_position() -> float:

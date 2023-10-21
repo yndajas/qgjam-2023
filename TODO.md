@@ -1,7 +1,5 @@
 # To do
 
-- spawn an enemy every N seconds
-- randomise time between enemy spawns within a range
 - randomise height of enemy spawn within a range
 - instantiate enemy bullet on/near enemy instance
 - move enemy bullet instance down the screen
@@ -77,3 +75,5 @@
 - move enemy right every physics process
 - free/remove enemy instance when off screen right
 - instantiate enemy as sprite 0 off screen left
+- spawn an enemy every N seconds
+- randomise time between enemy spawns within a range

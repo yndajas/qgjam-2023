@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+const EXPECTED_BULLET_EDGE_OFFSET = 8
 const PLAYABLE_BOTTOM_EDGE: int = 720
 const PLAYABLE_TOP_EDGE: int = 0
 const SPRITE_COUNT: int = 6

@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 enum Edge { LEFT, RIGHT }
-const GUN_OFFSET: int = 40
 const SPEED: float = 600.0
 var bullet_cooldown: float = 0
 var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
@@ -32,7 +31,7 @@ func _physics_process(delta: float) -> void:
 func fire() -> void:
 	var bullet: RigidBody2D = bullet_scene.instantiate()
 	bullet.global_position = Vector2(
-		x_position(), y_position() - GUN_OFFSET - bullet.EXPECTED_EDGE_OFFSET
+		x_position(), y_position() - Global.CHARACTER_GUN_OFFSET - bullet.EXPECTED_EDGE_OFFSET
 	)
 	get_tree().get_root().add_child(bullet)
 	bullet_cooldown = 0.2

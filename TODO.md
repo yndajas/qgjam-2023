@@ -39,6 +39,7 @@
   - display prompt to return to main menu (circle/escape)
 - music
 - menu
+- change player sprite to Sprite2D?
 
 ## Stretch goals
 

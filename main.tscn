@@ -38,4 +38,13 @@ theme = ExtResource("3_fo0jw")
 bbcode_enabled = true
 text = "[center]0000"
 
+[node name="SolidarityText" type="RichTextLabel" parent="InformationPanel"]
+layout_mode = 0
+offset_top = 144.0
+offset_right = 240.0
+offset_bottom = 168.0
+theme = ExtResource("3_fo0jw")
+bbcode_enabled = true
+text = "[center]Solidarity"
+
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

@@ -2,6 +2,7 @@ extends Node2D
 
 var collected_flags: Array[int]
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
+var flag_scene: PackedScene = preload("res://scenes/flag.tscn")
 var uncollected_flags: Array[int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 var score: int = 0
 @onready var converts_count_text: RichTextLabel = $InformationPanel/ConvertsCountText
@@ -30,12 +31,14 @@ func collect_flag() -> void:
 	uncollected_flags = uncollected_flags.filter(
 		func(uncollected_flag): return uncollected_flag != collected_flag
 	)
+	render_flags()
 
 
 func lose_flag() -> void:
 	var flag = collected_flags.pop_back()
 	var index_to_insert_at: int = randi_range(0, uncollected_flags.size())
 	uncollected_flags.insert(index_to_insert_at, flag)
+	render_flags()
 
 
 func on_enemy_converted() -> void:
@@ -57,6 +60,44 @@ func prepare_information_panel() -> void:
 	for panel_child in information_panel.get_children():
 		panel_child.size.x = Global.PLAYABLE_LEFT_EDGE
 	update_score_counter()
+
+
+func render_flags() -> void:
+	for child in information_panel.get_children():
+		if child.get_class() == "Sprite2D":
+			child.queue_free()
+
+	var index: int = 0
+	for flag in collected_flags:
+		var sprite_column = floor(flag / 2.0)
+		var sprite_row = flag % 2
+		var flag_sprite: Sprite2D = flag_scene.instantiate()
+		flag_sprite.scale = Vector2(Global.FLAG_SCALE, Global.FLAG_SCALE)
+		flag_sprite.region_rect = Rect2(
+			sprite_column * (Global.FLAG_SPRITE_WIDTH + Global.FLAG_SPRITE_GRID_GAP),
+			sprite_row * (Global.FLAG_SPRITE_HEIGHT + Global.FLAG_SPRITE_GRID_GAP),
+			Global.FLAG_SPRITE_WIDTH,
+			Global.FLAG_SPRITE_HEIGHT
+		)
+
+		var render_column = index % 2
+		var render_row = floor(index / 2.0)
+		flag_sprite.global_position = Vector2(
+			(
+				render_column * (Global.EXPECTED_FLAG_WIDTH + Global.FLAG_RENDER_GRID_GAP)
+				+ Global.EXPECTED_FLAG_EDGE_OFFSET_X
+				+ Global.FLAG_AREA_START_X
+			),
+			(
+				render_row * (Global.EXPECTED_FLAG_HEIGHT + Global.FLAG_RENDER_GRID_GAP)
+				+ Global.EXPECTED_FLAG_EDGE_OFFSET_Y
+				+ Global.FLAG_AREA_START_Y
+			),
+		)
+
+		information_panel.add_child(flag_sprite)
+
+		index += 1
 
 
 func spawn_enemy() -> void:

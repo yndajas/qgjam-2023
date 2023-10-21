@@ -4,7 +4,7 @@ enum Edge { BOTTOM, TOP }
 const EXPECTED_EDGE_OFFSET: int = 8
 const SPRITE_COUNT: int = 6
 const SPRITE_SCALE: int = 4
-@export var player_fire_sounds: Array[AudioStreamWAV]
+var fire_sound: AudioStreamWAV
 var sprite_index: int
 @onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 @onready var sprite: Sprite2D = $Sprite2D
@@ -16,7 +16,8 @@ var sprite_index: int
 func _ready() -> void:
 	sprite.region_rect = Rect2(0, sprite_index * sprite_size, sprite_size, sprite_size)
 	sprite.scale = Vector2(SPRITE_SCALE, SPRITE_SCALE)
-	play_fire_sound()
+	sfx_player.stream = fire_sound
+	sfx_player.play()
 
 
 func _physics_process(_delta: float) -> void:
@@ -30,7 +31,9 @@ func _on_body_entered(body: Node) -> void:
 		queue_free()
 
 
-func init(parent: CharacterBody2D) -> void:
+func init(parent: CharacterBody2D, sound: AudioStreamWAV) -> void:
+	fire_sound = sound
+
 	if parent.get_collision_layer_value(1):
 		set_collision_mask_value(1, false)
 	elif parent.get_collision_layer_value(2):
@@ -61,11 +64,6 @@ func is_off_screen_bottom() -> bool:
 
 func is_off_screen_top() -> bool:
 	return y_position() + edge_offset <= Global.PLAYABLE_TOP_EDGE
-
-
-func play_fire_sound() -> void:
-	sfx_player.stream = player_fire_sounds.pick_random()
-	sfx_player.play()
 
 
 func reverse_direction() -> void:

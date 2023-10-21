@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5jjbttu580bu"]
+[gd_scene load_steps=8 format=3 uid="uid://b5jjbttu580bu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_80y7t"]
 [ext_resource type="Texture2D" uid="uid://byn1h5gyio76d" path="res://assets/images/sprites/player.png" id="1_gsgms"]
+[ext_resource type="AudioStream" uid="uid://1i5vpk0xs7oa" path="res://assets/audio/sfx/player_fire_0.wav" id="2_lqjpo"]
+[ext_resource type="AudioStream" uid="uid://cjppq2wekfmnq" path="res://assets/audio/sfx/player_fire_1.wav" id="3_8xu3o"]
+[ext_resource type="AudioStream" uid="uid://cqpwyt1gammql" path="res://assets/audio/sfx/player_fire_2.wav" id="4_db4d7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_exveg"]
 animations = [{
@@ -20,6 +23,7 @@ size = Vector2(96, 96)
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 0
 script = ExtResource("1_80y7t")
+fire_sounds = Array[AudioStreamWAV]([ExtResource("2_lqjpo"), ExtResource("3_8xu3o"), ExtResource("4_db4d7")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_exveg")

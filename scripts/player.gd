@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 enum Edge { LEFT, RIGHT }
 const SPEED: float = 600.0
+@export var fire_sounds: Array[AudioStreamWAV]
 var bullet_cooldown: float = 0
 @onready var player_edge_offset: float = (
 	$AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", 0).get_size()[0] / 2.0
@@ -29,7 +30,7 @@ func _physics_process(delta: float) -> void:
 
 func fire() -> void:
 	var bullet: RigidBody2D = Global.bullet_scene.instantiate()
-	bullet.init(self)
+	bullet.init(self, fire_sounds.pick_random())
 	bullet_cooldown = 0.2
 
 

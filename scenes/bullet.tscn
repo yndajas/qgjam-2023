@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwei622gt6q2p"]
+[gd_scene load_steps=4 format=3 uid="uid://cwei622gt6q2p"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_r42ri"]
-[ext_resource type="AudioStream" uid="uid://1i5vpk0xs7oa" path="res://assets/audio/sfx/player_fire_0.wav" id="2_eox8w"]
 [ext_resource type="Texture2D" uid="uid://ccmq844pj3me4" path="res://assets/images/sprites/bullets.png" id="2_t17fu"]
-[ext_resource type="AudioStream" uid="uid://cjppq2wekfmnq" path="res://assets/audio/sfx/player_fire_1.wav" id="3_mbbqu"]
-[ext_resource type="AudioStream" uid="uid://cqpwyt1gammql" path="res://assets/audio/sfx/player_fire_2.wav" id="4_i7nne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8exr"]
 size = Vector2(16, 16)
@@ -16,7 +13,6 @@ max_contacts_reported = 1
 contact_monitor = true
 linear_velocity = Vector2(2.08165e-12, -600)
 script = ExtResource("1_r42ri")
-player_fire_sounds = Array[AudioStreamWAV]([ExtResource("2_eox8w"), ExtResource("3_mbbqu"), ExtResource("4_i7nne")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

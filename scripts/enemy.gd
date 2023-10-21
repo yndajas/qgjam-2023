@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 2)
 		modulate.a -= delta
 
-	if gaysplosion_ended and sfx_player.playing == false:
+	if gaysplosion_ended and !sfx_player.playing:
 		queue_free()
 
 

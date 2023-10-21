@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal converted
 const EXPECTED_EDGE_OFFSET: int = 48
 const EXPECTED_SPRITE_SIZE = 96
 const MINIMUM_SPAWN_Y = EXPECTED_EDGE_OFFSET + 24
@@ -50,6 +51,15 @@ func is_off_screen() -> bool:
 	return x_position() - enemy_edge_offset >= Global.PLAYABLE_RIGHT_EDGE
 
 
+func on_converted() -> void:
+	sprite.region_rect = Rect2(sprite_size * 2 + 2, 0, sprite_size, sprite_size)
+	fire_timer.stop()
+	set_collision_layer_value(2, false)
+	play_gaysplosion()
+	play_converted_sound()
+	emit_signal("converted")
+
+
 func on_gaysplosion_ended() -> void:
 	gaysplosion_ended = true
 
@@ -60,11 +70,7 @@ func on_hit() -> void:
 	if straightness == 3:
 		sprite.region_rect = Rect2(sprite_size + 1, 0, sprite_size, sprite_size)
 	elif straightness == 0:
-		sprite.region_rect = Rect2(sprite_size * 2 + 2, 0, sprite_size, sprite_size)
-		fire_timer.stop()
-		set_collision_layer_value(2, false)
-		play_gaysplosion()
-		play_converted_sound()
+		on_converted()
 
 
 func play_converted_sound() -> void:

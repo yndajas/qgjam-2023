@@ -1,6 +1,5 @@
 # To do
 
-- add player score variable
 - add player score indicator
 - on enemy/player bullet collision:
   - if enemy is sprite 0 or 1
@@ -8,7 +7,6 @@
   - if they are now sprite 2
     - if there are any flags not in the player's collection (solidarity meter),
       add one of the ones they don't have to their collection
-    - add to player score
 - on player/enemy bullet collision:
   - if they have any flags in their collection:
     - remove one random flag
@@ -78,7 +76,9 @@
       ends
     - play queerified sound effect
     - queue free when explosion and sound effect ended
+    - add to player score
 - on player/enemy bullet collision:
   - derender enemy bullet
 - play sound effect on enemy bullet instantiation
 - spawn enemies from both sides? How to manage overlap?
+- add player score variable

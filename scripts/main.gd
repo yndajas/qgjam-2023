@@ -1,6 +1,7 @@
 extends Node2D
 
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
+var score: int = 0
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 
 
@@ -14,10 +15,16 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	enemy_spawn_timer.start()
 
 
+func on_enemy_converted() -> void:
+	score += 1
+	print_debug(score)
+
+
 func spawn_enemy() -> void:
 	var enemy: CharacterBody2D = enemy_scene.instantiate()
 	enemy.global_position.y = randf_range(enemy.MINIMUM_SPAWN_Y, enemy.MAXIMUM_SPAWN_Y)
 	set_enemy_direction(enemy)
+	enemy.connect("converted", on_enemy_converted)
 	get_tree().get_root().add_child.call_deferred(enemy)
 
 

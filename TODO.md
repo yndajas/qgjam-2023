@@ -1,7 +1,5 @@
 # To do
 
-- on button press:
-  - play sound effect
 - instantiate enemy as sprite 0 off screen left
 - move enemy right every physics process
 - free/remove enemy instance when off screen right
@@ -76,3 +74,4 @@
 - on button press:
   - instantiate bullet on/near player
   - move bullet up screen
+  - play sound effect

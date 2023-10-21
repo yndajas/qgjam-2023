@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "lint": "prettier --check '**/*.{json,md}' && sort-package-json --check",
-    "lint:fix": "prettier --write '**/*.{json,md}' && sort-package-json",
+    "lint": "gdlint **/*.gd && prettier --check '**/*.{json,md}' && sort-package-json --check",
+    "lint:fix": "gdformat **/*.gd && prettier --write '**/*.{json,md}' && sort-package-json",
     "prepare": "husky install"
   },
   "devDependencies": {

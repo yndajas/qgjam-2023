@@ -8,8 +8,7 @@ var score: int = 0
 
 
 func _ready() -> void:
-	information_panel.size.x = Global.PLAYABLE_LEFT_EDGE
-	update_score_counter()
+	prepare_information_panel()
 	spawn_enemy()
 
 
@@ -21,6 +20,13 @@ func _on_enemy_spawn_timer_timeout() -> void:
 
 func on_enemy_converted() -> void:
 	score += 1
+	update_score_counter()
+
+
+func prepare_information_panel() -> void:
+	information_panel.size.x = Global.PLAYABLE_LEFT_EDGE
+	for panel_child in information_panel.get_children():
+		panel_child.size.x = Global.PLAYABLE_LEFT_EDGE
 	update_score_counter()
 
 

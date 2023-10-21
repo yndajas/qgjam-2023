@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://crgnvs7u0lb24"]
+[gd_scene load_steps=7 format=3 uid="uid://crgnvs7u0lb24"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_xu1dm"]
 [ext_resource type="PackedScene" uid="uid://b5jjbttu580bu" path="res://scenes/player.tscn" id="2_gfr7i"]
+[ext_resource type="AudioStream" uid="uid://dq084wfjssdwm" path="res://assets/audio/sfx/game_over_0.wav" id="2_nduyp"]
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="3_nln1n"]
+[ext_resource type="AudioStream" uid="uid://8pfnb6ojh2e7" path="res://assets/audio/sfx/game_over_1.wav" id="3_snwyu"]
+[ext_resource type="AudioStream" uid="uid://cqmmvvm76imss" path="res://assets/audio/sfx/game_over_2.wav" id="4_h8a3o"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xu1dm")
+game_over_sounds = Array[AudioStreamWAV]([ExtResource("2_nduyp"), ExtResource("3_snwyu"), ExtResource("4_h8a3o")])
 
 [node name="Player" parent="." instance=ExtResource("2_gfr7i")]
 position = Vector2(640, 648)
@@ -56,5 +60,7 @@ theme = ExtResource("3_nln1n")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[center]P/options: pause"
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

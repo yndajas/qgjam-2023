@@ -50,10 +50,11 @@ func is_left_edge(edge: int) -> bool:
 
 
 func on_hit() -> void:
+	emit_signal("hit")
+
 	if Global.game_over:
 		return
 
-	emit_signal("hit")
 	play_damage_sound()
 
 

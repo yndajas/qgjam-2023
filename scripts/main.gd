@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var game_over_sounds: Array[AudioStreamWAV]
 var collected_flags: Array[int]
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var flag_scene: PackedScene = preload("res://scenes/flag.tscn")
@@ -10,6 +11,7 @@ var score: int = 0
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var information_panel: ColorRect = $InformationPanel
 @onready var player: CharacterBody2D = $Player
+@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
 
 func _ready() -> void:
@@ -50,15 +52,18 @@ func on_enemy_converted() -> void:
 	update_score_counter()
 
 
-func on_game_end() -> void:
+func on_game_over() -> void:
 	enemy_spawn_timer.stop()
+	sfx_player.stream = game_over_sounds.pick_random()
+	sfx_player.play()
+
 
 func on_player_hit() -> void:
 	if collected_flags.size():
 		lose_flag()
 	else:
 		Global.game_over = true
-		on_game_end()
+		on_game_over()
 
 
 func prepare_information_panel() -> void:

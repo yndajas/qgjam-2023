@@ -1,21 +1,12 @@
 # To do
 
-- instantiate enemy bullet on/near enemy instance
-- move enemy bullet instance down the screen
-- free/remove enemy bullet instance when off screen bottom
-- instantiate new enemy bullet every N seconds from enemy instance spawn
 - play sound effect on enemy bullet instantiation
 - add player score variable
 - add player score indicator
 - on enemy/player bullet collision:
   - if enemy is sprite 0 or 1
-    - move to next sprite up
     - play hit sound effect
   - if they are now sprite 2
-    - stop their bullet fire
-    - stop their movement
-    - play rainbow explosion and free/remove the instance when the explosion
-      ends
     - if there are any flags not in the player's collection (solidarity meter),
       add one of the ones they don't have to their collection
     - add to player score
@@ -25,7 +16,6 @@
     - remove one random flag
   - else:
     - trigger game over state
-  - derender enemy bullet
   - play sound effect
 - game over state
   - display count of new baby queers successfully converted
@@ -77,3 +67,17 @@
 - spawn an enemy every N seconds
 - randomise time between enemy spawns within a range
 - randomise height of enemy spawn within a range
+- instantiate enemy bullet on/near enemy instance
+- move enemy bullet instance down the screen
+- free/remove enemy bullet instance when off screen bottom
+- instantiate new enemy bullet every random N seconds within a range
+- on enemy/player bullet collision:
+  - if enemy is sprite 0 or 1
+    - move to next sprite up
+  - if they are now sprite 2
+    - stop their bullet fire
+    - stop their movement
+    - play rainbow explosion and free/remove the instance when the explosion
+      ends
+- on player/enemy bullet collision:
+  - derender enemy bullet

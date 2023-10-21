@@ -13,7 +13,7 @@ var gaysplosion_scene: PackedScene = preload("res://scenes/gaysplosion.tscn")
 var gun_has_entered_playable_area: bool = false
 var straightness: int = 6
 @onready var fire_timer: Timer = $FireTimer
-@onready var converted_player: AudioStreamPlayer = $ConvertedPlayer
+@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]
 @onready var edge_offset: float = ceilf(sprite_size / 2.0)
@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 2)
 		modulate.a -= delta
 
-	if gaysplosion_ended and converted_player.playing == false:
+	if gaysplosion_ended and sfx_player.playing == false:
 		queue_free()
 
 
@@ -101,8 +101,8 @@ func on_hit() -> void:
 
 
 func play_converted_sound() -> void:
-	converted_player.stream = converted_sounds.pick_random()
-	converted_player.play()
+	sfx_player.stream = converted_sounds.pick_random()
+	sfx_player.play()
 
 
 func play_gaysplosion() -> void:

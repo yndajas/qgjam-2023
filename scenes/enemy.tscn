@@ -33,6 +33,6 @@ shape = SubResource("RectangleShape2D_y46j2")
 one_shot = true
 autostart = true
 
-[node name="ConvertedPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

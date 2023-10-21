@@ -29,10 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func fire() -> void:
 	var bullet: RigidBody2D = Global.bullet_scene.instantiate()
-	bullet.global_position = Vector2(
-		x_position(), y_position() - Global.CHARACTER_GUN_OFFSET - bullet.EXPECTED_EDGE_OFFSET
-	)
-	get_tree().get_root().add_child(bullet)
+	bullet.init(self)
 	bullet_cooldown = 0.2
 
 

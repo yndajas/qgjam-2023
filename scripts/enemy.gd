@@ -27,11 +27,7 @@ func _on_fire_timer_timeout() -> void:
 
 func fire() -> void:
 	var bullet: RigidBody2D = Global.bullet_scene.instantiate()
-	bullet.global_position = Vector2(
-		x_position(), y_position() + Global.CHARACTER_GUN_OFFSET + bullet.EXPECTED_EDGE_OFFSET
-	)
-	bullet.reverse_direction()
-	get_tree().get_root().add_child(bullet)
+	bullet.init(self)
 
 
 func is_off_screen() -> bool:

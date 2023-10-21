@@ -2,4 +2,8 @@
 
 # script/test: Run the test suite for the application.
 
+set -e
+
+echo "==> Linting..."
+
 bun run lint

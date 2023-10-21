@@ -19,7 +19,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func is_off_screen() -> bool:
-	return x_position() - enemy_edge_offset > Global.PLAYABLE_RIGHT_EDGE
+	return x_position() - enemy_edge_offset >= Global.PLAYABLE_RIGHT_EDGE
 
 
 func on_hit() -> void:

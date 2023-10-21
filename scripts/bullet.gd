@@ -35,11 +35,11 @@ func is_off_screen() -> bool:
 
 
 func is_off_screen_bottom() -> bool:
-	return y_position() - bullet_edge_offset > Global.PLAYABLE_BOTTOM_EDGE
+	return y_position() - bullet_edge_offset >= Global.PLAYABLE_BOTTOM_EDGE
 
 
 func is_off_screen_top() -> bool:
-	return y_position() + bullet_edge_offset < Global.PLAYABLE_TOP_EDGE
+	return y_position() + bullet_edge_offset <= Global.PLAYABLE_TOP_EDGE
 
 
 func play_fire_sound() -> void:

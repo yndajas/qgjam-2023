@@ -5,6 +5,7 @@ const EXPECTED_SPRITE_SIZE = 96
 const MINIMUM_SPAWN_Y = EXPECTED_EDGE_OFFSET + 24
 const MAXIMUM_SPAWN_Y = floor(Global.PLAYABLE_BOTTOM_EDGE / 2.0) - EXPECTED_SPRITE_SIZE
 const SPEED: float = 150.0
+var straightness: int = 6
 @onready var fire_timer: Timer = $FireTimer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]
@@ -38,7 +39,12 @@ func is_off_screen() -> bool:
 
 
 func on_hit() -> void:
-	print_debug("enemy_hit")
+	straightness -= 1
+
+	if straightness == 3:
+		sprite.region_rect = Rect2(sprite_size + 1, 0, sprite_size, sprite_size)
+	elif straightness == 0:
+		sprite.region_rect = Rect2(sprite_size * 2 + 2, 0, sprite_size, sprite_size)
 
 
 func start_fire_timer() -> void:

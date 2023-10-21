@@ -37,6 +37,7 @@
 - music
 - menu
 - change player sprite to Sprite2D?
+- change collision shape to collision polygon?
 
 ## Stretch goals
 

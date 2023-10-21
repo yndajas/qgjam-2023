@@ -23,6 +23,9 @@ func _physics_process(_delta: float) -> void:
 	if is_off_screen():
 		queue_free()
 
+	if straightness == 0:
+		velocity.x = move_toward(velocity.x, 0, SPEED / 2)
+
 
 func _on_fire_timer_timeout() -> void:
 	fire()

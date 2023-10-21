@@ -3,9 +3,11 @@ extends CharacterBody2D
 signal hit
 enum Edge { LEFT, RIGHT }
 const SPEED: float = 600.0
+@export var damage_sounds: Array[AudioStreamWAV]
 @export var fire_sounds: Array[AudioStreamWAV]
 var bullet_cooldown: float = 0
 @onready var edge_offset: float = $Sprite2D.get_rect().size[0] / 2.0
+@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
 
 func _physics_process(delta: float) -> void:
@@ -46,6 +48,12 @@ func is_left_edge(edge: int) -> bool:
 
 func on_hit() -> void:
 	emit_signal("hit")
+	play_damage_sound()
+
+
+func play_damage_sound() -> void:
+	sfx_player.stream = damage_sounds.pick_random()
+	sfx_player.play()
 
 
 func reset_if_beyond_edge() -> void:

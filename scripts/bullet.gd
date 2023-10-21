@@ -2,8 +2,6 @@ extends RigidBody2D
 
 enum Edge { BOTTOM, TOP }
 const EXPECTED_BULLET_EDGE_OFFSET = 8
-const PLAYABLE_BOTTOM_EDGE: int = 720
-const PLAYABLE_TOP_EDGE: int = 0
 const SPRITE_COUNT: int = 6
 const SPRITE_SCALE: int = 4
 @export var fire_sounds: Array[AudioStreamWAV]
@@ -31,11 +29,11 @@ func is_off_screen() -> bool:
 
 
 func is_off_screen_bottom() -> bool:
-	return y_position() - bullet_edge_offset > PLAYABLE_BOTTOM_EDGE
+	return y_position() - bullet_edge_offset > Global.PLAYABLE_BOTTOM_EDGE
 
 
 func is_off_screen_top() -> bool:
-	return y_position() + bullet_edge_offset < PLAYABLE_TOP_EDGE
+	return y_position() + bullet_edge_offset < Global.PLAYABLE_TOP_EDGE
 
 
 func play_fire_sound() -> void:

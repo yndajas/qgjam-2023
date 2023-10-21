@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
 enum Edge { LEFT, RIGHT }
-const PLAYABLE_LEFT_EDGE: int = 0
-const PLAYABLE_RIGHT_EDGE: int = 1280
 const PLAYER_GUN_OFFSET: int = 40
 const SPEED: float = 600.0
 var bullet_cooldown: float = 0
@@ -42,9 +40,9 @@ func fire() -> void:
 
 func has_hit_edge(edge: int) -> bool:
 	if is_left_edge(edge):
-		return x_position() - player_edge_offset < PLAYABLE_LEFT_EDGE
+		return x_position() - player_edge_offset < Global.PLAYABLE_LEFT_EDGE
 
-	return x_position() + player_edge_offset > PLAYABLE_RIGHT_EDGE
+	return x_position() + player_edge_offset > Global.PLAYABLE_RIGHT_EDGE
 
 
 func is_left_edge(edge: int) -> bool:
@@ -62,9 +60,9 @@ func reset_to_edge(edge: int) -> void:
 	var target_x_position: float
 
 	if is_left_edge(edge):
-		target_x_position = ceil(PLAYABLE_LEFT_EDGE + player_edge_offset)
+		target_x_position = ceil(Global.PLAYABLE_LEFT_EDGE + player_edge_offset)
 	else:
-		target_x_position = floor(PLAYABLE_RIGHT_EDGE - player_edge_offset)
+		target_x_position = floor(Global.PLAYABLE_RIGHT_EDGE - player_edge_offset)
 
 	self.global_position = Vector2(target_x_position, y_position())
 

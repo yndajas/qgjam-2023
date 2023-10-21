@@ -8,8 +8,8 @@ const SPRITE_SCALE: int = 4
 @onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]
-@onready var bullet_size: float = sprite_size * SPRITE_SCALE
-@onready var bullet_edge_offset: float = ceilf(bullet_size / 2.0)
+@onready var size: float = sprite_size * SPRITE_SCALE
+@onready var edge_offset: float = ceilf(size / 2.0)
 
 
 func _ready() -> void:
@@ -35,11 +35,11 @@ func is_off_screen() -> bool:
 
 
 func is_off_screen_bottom() -> bool:
-	return y_position() - bullet_edge_offset >= Global.PLAYABLE_BOTTOM_EDGE
+	return y_position() - edge_offset >= Global.PLAYABLE_BOTTOM_EDGE
 
 
 func is_off_screen_top() -> bool:
-	return y_position() + bullet_edge_offset <= Global.PLAYABLE_TOP_EDGE
+	return y_position() + edge_offset <= Global.PLAYABLE_TOP_EDGE
 
 
 func play_fire_sound() -> void:

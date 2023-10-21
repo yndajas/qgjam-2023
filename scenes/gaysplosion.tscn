@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://n3fd71xert8q"]
+[gd_scene load_steps=4 format=3 uid="uid://2a8xj1128xkj"]
 
-[ext_resource type="Texture2D" uid="uid://bc1djcrvyx3dk" path="res://assets/images/sprites/explosion_sheet.svg" id="1_or2ic"]
+[ext_resource type="Texture2D" uid="uid://bc1djcrvyx3dk" path="res://assets/images/sprites/explosion_sheet.svg" id="1_a7sc5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0noh1"]
 particles_animation = true
@@ -13,14 +13,15 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.0822086, 0.165563, 0.252761, 0.334969, 0.415951, 0.492025, 0.581595, 0.665031, 0.749693, 0.83681, 0.920245, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.937255, 0.607843, 0.737255, 1, 0.847059, 0, 0.0745098, 1, 0.505882, 0.262745, 0.0705882, 1, 0.92549, 0.458824, 0.0784314, 1, 0.988235, 0.823529, 0.0823529, 1, 0.921569, 0.890196, 0.113725, 1, 0.403922, 0.682353, 0.12549, 1, 0.419608, 0.756863, 0.87451, 1, 0.133333, 0.262745, 0.576471, 1, 0.321569, 0.12549, 0.470588, 1, 0.34902, 0.0666667, 0.427451, 1, 0.0862745, 0.0862745, 0.0823529, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D"]
+[node name="Gaysplosion" type="CPUParticles2D"]
 material = SubResource("CanvasItemMaterial_0noh1")
+emitting = false
 lifetime = 0.5
 one_shot = true
 speed_scale = 0.5
 explosiveness = 1.0
 lifetime_randomness = 0.5
-texture = ExtResource("1_or2ic")
+texture = ExtResource("1_a7sc5")
 emission_shape = 1
 emission_sphere_radius = 128.0
 gravity = Vector2(2.08165e-12, -50)

@@ -44,6 +44,10 @@ func is_left_edge(edge: int) -> bool:
 	return edge == Edge.LEFT
 
 
+func on_hit() -> void:
+	print_debug("player_hit")
+
+
 func reset_if_beyond_edge() -> void:
 	if has_hit_edge(Edge.LEFT):
 		reset_to_edge(Edge.LEFT)

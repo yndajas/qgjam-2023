@@ -1,6 +1,5 @@
 # To do
 
-- play sound effect on enemy bullet instantiation
 - add player score variable
 - add player score indicator
 - on enemy/player bullet collision:
@@ -10,7 +9,6 @@
     - if there are any flags not in the player's collection (solidarity meter),
       add one of the ones they don't have to their collection
     - add to player score
-    - play queerified sound effect
 - on player/enemy bullet collision:
   - if they have any flags in their collection:
     - remove one random flag
@@ -79,5 +77,8 @@
     - stop their movement
     - play rainbow explosion and free/remove the instance when the explosion
       ends
+    - play queerified sound effect
+    - queue free when explosion and sound effect ended
 - on player/enemy bullet collision:
   - derender enemy bullet
+- play sound effect on enemy bullet instantiation

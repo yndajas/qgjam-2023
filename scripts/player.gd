@@ -60,7 +60,7 @@ func reset_to_edge(edge: int) -> void:
 	var target_x_position: float
 
 	if is_left_edge(edge):
-		target_x_position = ceil(Global.PLAYABLE_LEFT_EDGE + player_edge_offset)
+		target_x_position = ceilf(Global.PLAYABLE_LEFT_EDGE + player_edge_offset)
 	else:
 		target_x_position = floor(Global.PLAYABLE_RIGHT_EDGE - player_edge_offset)
 

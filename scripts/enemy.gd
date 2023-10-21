@@ -4,7 +4,7 @@ const EXPECTED_ENEMY_EDGE_OFFSET: int = 48
 const SPEED: float = 150.0
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]
-@onready var enemy_edge_offset: float = ceili(sprite_size / 2.0)
+@onready var enemy_edge_offset: float = ceilf(sprite_size / 2.0)
 
 
 func _ready() -> void:

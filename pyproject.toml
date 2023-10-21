@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "Gay Ray"
+version = "0.0.1"
+description = ""
+authors = ["Ynda Jas <yndajas@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+gdtoolkit = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -7,6 +7,7 @@ const MINIMUM_SPAWN_Y = EXPECTED_EDGE_OFFSET + 24
 const MAXIMUM_SPAWN_Y = floor(Global.PLAYABLE_BOTTOM_EDGE / 2.0) - EXPECTED_SPRITE_SIZE
 const SPEED: float = 150.0
 @export var converted_sounds: Array[AudioStreamWAV]
+@export var damage_sounds: Array[AudioStreamWAV]
 @export var fire_sounds: Array[AudioStreamWAV]
 var gaysplosion_ended: bool = false
 var gaysplosion_scene: PackedScene = preload("res://scenes/gaysplosion.tscn")
@@ -96,12 +97,19 @@ func on_hit() -> void:
 
 	if straightness == 3:
 		sprite.region_rect = Rect2(sprite_size + 1, 0, sprite_size, sprite_size)
+		play_damage_sound()
+
 	elif straightness == 0:
 		on_converted()
 
 
 func play_converted_sound() -> void:
 	sfx_player.stream = converted_sounds.pick_random()
+	sfx_player.play()
+
+
+func play_damage_sound() -> void:
+	sfx_player.stream = damage_sounds.pick_random()
 	sfx_player.play()
 
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bt5gipfymyyb5"
-path="res://.godot/imported/gayified_1.wav-4453760941e99195bcb7dcacf3c25a5f.sample"
+path="res://.godot/imported/converted_1.wav-841293690b0deec55fedee62dee81f9c.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/gayified_1.wav"
-dest_files=["res://.godot/imported/gayified_1.wav-4453760941e99195bcb7dcacf3c25a5f.sample"]
+source_file="res://assets/audio/sfx/converted_1.wav"
+dest_files=["res://.godot/imported/converted_1.wav-841293690b0deec55fedee62dee81f9c.sample"]
 
 [params]
 

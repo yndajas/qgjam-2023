@@ -5,13 +5,13 @@ const EXPECTED_SPRITE_SIZE = 96
 const MINIMUM_SPAWN_Y = EXPECTED_EDGE_OFFSET + 24
 const MAXIMUM_SPAWN_Y = floor(Global.PLAYABLE_BOTTOM_EDGE / 2.0) - EXPECTED_SPRITE_SIZE
 const SPEED: float = 150.0
+@export var converted_sounds: Array[AudioStreamWAV]
 @export var fire_sounds: Array[AudioStreamWAV]
-@export var gayified_sounds: Array[AudioStreamWAV]
 var gaysplosion_ended: bool = false
 var gaysplosion_scene: PackedScene = preload("res://scenes/gaysplosion.tscn")
 var straightness: int = 6
 @onready var fire_timer: Timer = $FireTimer
-@onready var gayified_player: AudioStreamPlayer = $GayifiedPlayer
+@onready var converted_player: AudioStreamPlayer = $ConvertedPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]
 @onready var enemy_edge_offset: float = ceilf(sprite_size / 2.0)
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 2)
 		modulate.a -= delta
 
-	if gaysplosion_ended and gayified_player.playing == false:
+	if gaysplosion_ended and converted_player.playing == false:
 		queue_free()
 
 
@@ -64,12 +64,12 @@ func on_hit() -> void:
 		fire_timer.stop()
 		set_collision_layer_value(2, false)
 		play_gaysplosion()
-		play_gayified_sound()
+		play_converted_sound()
 
 
-func play_gayified_sound() -> void:
-	gayified_player.stream = gayified_sounds.pick_random()
-	gayified_player.play()
+func play_converted_sound() -> void:
+	converted_player.stream = converted_sounds.pick_random()
+	converted_player.play()
 
 
 func play_gaysplosion() -> void:

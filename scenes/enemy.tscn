@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_abaap"]
 [ext_resource type="Texture2D" uid="uid://bfooi7navi4bt" path="res://assets/images/sprites/enemies.png" id="1_v2bjt"]
 [ext_resource type="AudioStream" uid="uid://dyeecsavgarac" path="res://assets/audio/sfx/enemy_fire_0.wav" id="2_haq55"]
+[ext_resource type="AudioStream" uid="uid://bu1uex3yxslqy" path="res://assets/audio/sfx/converted_0.wav" id="2_p0yhq"]
+[ext_resource type="AudioStream" uid="uid://bt5gipfymyyb5" path="res://assets/audio/sfx/converted_1.wav" id="3_aa2t3"]
 [ext_resource type="AudioStream" uid="uid://cx7jqr8chhrji" path="res://assets/audio/sfx/enemy_fire_1.wav" id="3_igv7m"]
-[ext_resource type="AudioStream" uid="uid://bu1uex3yxslqy" path="res://assets/audio/sfx/gayified_0.wav" id="4_2f5n6"]
-[ext_resource type="AudioStream" uid="uid://bt5gipfymyyb5" path="res://assets/audio/sfx/gayified_1.wav" id="5_b8kei"]
-[ext_resource type="AudioStream" uid="uid://dwoy4w6jeb3j4" path="res://assets/audio/sfx/gayified_2.wav" id="6_cebkx"]
+[ext_resource type="AudioStream" uid="uid://dwoy4w6jeb3j4" path="res://assets/audio/sfx/converted_2.wav" id="4_7e4k7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y46j2"]
 size = Vector2(96, 96)
@@ -15,8 +15,8 @@ size = Vector2(96, 96)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_abaap")
+converted_sounds = Array[AudioStreamWAV]([ExtResource("2_p0yhq"), ExtResource("3_aa2t3"), ExtResource("4_7e4k7")])
 fire_sounds = Array[AudioStreamWAV]([ExtResource("2_haq55"), ExtResource("3_igv7m")])
-gayified_sounds = Array[AudioStreamWAV]([ExtResource("4_2f5n6"), ExtResource("5_b8kei"), ExtResource("6_cebkx")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_v2bjt")
@@ -30,6 +30,6 @@ shape = SubResource("RectangleShape2D_y46j2")
 one_shot = true
 autostart = true
 
-[node name="GayifiedPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ConvertedPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

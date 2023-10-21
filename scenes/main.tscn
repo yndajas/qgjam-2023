@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://crgnvs7u0lb24"]
+[gd_scene load_steps=9 format=3 uid="uid://crgnvs7u0lb24"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_xu1dm"]
 [ext_resource type="PackedScene" uid="uid://b5jjbttu580bu" path="res://scenes/player.tscn" id="2_gfr7i"]
@@ -6,10 +6,12 @@
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="3_nln1n"]
 [ext_resource type="AudioStream" uid="uid://8pfnb6ojh2e7" path="res://assets/audio/sfx/game_over_1.wav" id="3_snwyu"]
 [ext_resource type="AudioStream" uid="uid://cqmmvvm76imss" path="res://assets/audio/sfx/game_over_2.wav" id="4_h8a3o"]
+[ext_resource type="AudioStream" uid="uid://ctc7ue31efcin" path="res://assets/audio/sfx/game_over_3.wav" id="5_f7fmq"]
+[ext_resource type="AudioStream" uid="uid://cfa0o8rqwuuu1" path="res://assets/audio/sfx/game_over_4.wav" id="6_vmo0h"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xu1dm")
-game_over_sounds = Array[AudioStreamWAV]([ExtResource("2_nduyp"), ExtResource("3_snwyu"), ExtResource("4_h8a3o")])
+game_over_sounds = Array[AudioStreamWAV]([ExtResource("2_nduyp"), ExtResource("3_snwyu"), ExtResource("4_h8a3o"), ExtResource("5_f7fmq"), ExtResource("6_vmo0h")])
 
 [node name="Player" parent="." instance=ExtResource("2_gfr7i")]
 position = Vector2(640, 648)

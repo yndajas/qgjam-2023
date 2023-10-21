@@ -17,7 +17,7 @@ Made for [The Queerness and Games Jam 2023][qgjam-2023]
 [Explosion sprite sheet][explosion-sprite-sheet] and [guide][explosion-tutorial]
 by [PlayWithFurcifer][play-with-furcifer]
 
-Voiceovers by Weli Yu and Ynda Jas (they/them)
+Voiceover and sound effects by Weli Yu and Ynda Jas (they/them)
 
 The rest by Ynda Jas (they/them)
 

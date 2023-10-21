@@ -1,6 +1,8 @@
 extends Node2D
 
+var collected_flags: Array[int]
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
+var uncollected_flags: Array[int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 var score: int = 0
 @onready var converts_count_text: RichTextLabel = $InformationPanel/ConvertsCountText
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
@@ -8,6 +10,7 @@ var score: int = 0
 
 
 func _ready() -> void:
+	uncollected_flags.shuffle()
 	prepare_information_panel()
 	spawn_enemy()
 
@@ -18,8 +21,19 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	enemy_spawn_timer.start()
 
 
+func collect_flag() -> void:
+	var index = randi_range(0, uncollected_flags.size() - 1)
+	var collected_flag = uncollected_flags[index]
+	collected_flags.push_back(collected_flag)
+	uncollected_flags = uncollected_flags.filter(
+		func(uncollected_flag): return uncollected_flag != collected_flag
+	)
+
+
 func on_enemy_converted() -> void:
 	score += 1
+	if collected_flags.size() < 14:
+		collect_flag()
 	update_score_counter()
 
 

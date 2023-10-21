@@ -25,6 +25,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("fire") && bullet_cooldown <= 0:
 		fire()
 
+	if Input.is_action_just_released("fire"):
+		bullet_cooldown = 0
+
 func fire() -> void:
 	var bullet: RigidBody2D = bullet_scene.instantiate()
 	bullet.global_position = Vector2(x_position(), y_position() - PLAYER_GUN_OFFSET - bullet.EXPECTED_BULLET_EDGE_OFFSET)

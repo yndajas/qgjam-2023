@@ -1,6 +1,7 @@
 extends Node2D
 
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
+@onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 
 
 func _ready() -> void:
@@ -21,3 +22,5 @@ func spawn_enemy() -> void:
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
+	enemy_spawn_timer.wait_time = randf_range(2, 6)
+	enemy_spawn_timer.start()

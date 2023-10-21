@@ -45,6 +45,7 @@ func on_hit() -> void:
 		sprite.region_rect = Rect2(sprite_size + 1, 0, sprite_size, sprite_size)
 	elif straightness == 0:
 		sprite.region_rect = Rect2(sprite_size * 2 + 2, 0, sprite_size, sprite_size)
+		fire_timer.stop()
 
 
 func start_fire_timer() -> void:

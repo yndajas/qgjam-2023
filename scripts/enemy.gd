@@ -22,7 +22,16 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_fire_timer_timeout() -> void:
-	print_debug("fire")
+	fire()
+
+
+func fire() -> void:
+	var bullet: RigidBody2D = Global.bullet_scene.instantiate()
+	bullet.global_position = Vector2(
+		x_position(), y_position() + Global.CHARACTER_GUN_OFFSET + bullet.EXPECTED_EDGE_OFFSET
+	)
+	bullet.reverse_direction()
+	get_tree().get_root().add_child(bullet)
 
 
 func is_off_screen() -> bool:
@@ -35,3 +44,7 @@ func on_hit() -> void:
 
 func x_position() -> float:
 	return self.global_position[0]
+
+
+func y_position() -> float:
+	return self.global_position[1]

@@ -47,5 +47,9 @@ func play_fire_sound() -> void:
 	sfx_player.play()
 
 
+func reverse_direction() -> void:
+	linear_velocity.y *= -1
+
+
 func y_position() -> float:
 	return self.global_position[1]

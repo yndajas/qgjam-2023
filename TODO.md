@@ -24,11 +24,11 @@
 
 ## Stretch goals
 
+- increase enemy spawn rate and/or bullet rate and/or speed over time
 - show controls in HUD
 - add count up timer
 - display survival time in game over state
 - add option to start the game with a few flags in your solidarity meter
-- increase enemy spawn rate and/or bullet rate and/or speed over time
 - randomise whether enemy is sprite 0 or 1 on instantiation, favouring 0
 - make player invulnerable for N seconds after being hit
 - make enemy invulnerable for N seconds after being hit

@@ -1,23 +1,16 @@
 # To do
 
-- on enemy/player bullet collision:
-  - if enemy is sprite 0 or 1
-    - play hit sound effect
-- on player/enemy bullet collision:
-  - if they have not flags in their collection:
-    - trigger game over state
-  - play sound effect
 - game over state
   - display count of new baby queers successfully converted
   - display prompt to play again (square/R)
   - display prompt to return to main menu (circle/escape)
-- music
 - menu
-- change collision shape to collision polygon?
+- increase enemy spawn rate and/or bullet rate and/or speed over time
+- music
 
 ## Stretch goals
 
-- increase enemy spawn rate and/or bullet rate and/or speed over time
+- change collision shape to collision polygon?
 - show controls in HUD
 - add count up timer
 - display survival time in game over state
@@ -62,6 +55,7 @@
 - on enemy/player bullet collision:
   - if enemy is sprite 0 or 1
     - move to next sprite up
+    - play hit sound effect
   - if they are now sprite 2
     - stop their bullet fire
     - stop their movement
@@ -74,8 +68,11 @@
       add one of the ones they don't have to their collection
 - on player/enemy bullet collision:
   - derender enemy bullet
+  - play sound effect
   - if they have any flags in their collection:
     - remove one random flag
+  - else:
+    - trigger game over state
 - play sound effect on enemy bullet instantiation
 - spawn enemies from both sides? How to manage overlap?
 - add player score variable

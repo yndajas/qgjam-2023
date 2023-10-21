@@ -11,6 +11,9 @@ var bullet_cooldown: float = 0
 
 
 func _physics_process(delta: float) -> void:
+	if Global.game_over:
+		return
+
 	var direction := Input.get_axis("move_left", "move_right")
 
 	if direction:
@@ -47,6 +50,9 @@ func is_left_edge(edge: int) -> bool:
 
 
 func on_hit() -> void:
+	if Global.game_over:
+		return
+
 	emit_signal("hit")
 	play_damage_sound()
 

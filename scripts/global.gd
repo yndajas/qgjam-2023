@@ -29,3 +29,4 @@ const EXPECTED_FLAG_AREA_END_Y: int = (
 	)
 )
 var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+var game_over: bool = false

@@ -13,6 +13,7 @@ var score: int = 0
 
 
 func _ready() -> void:
+	Global.game_over = false
 	uncollected_flags.shuffle()
 	prepare_information_panel()
 	spawn_enemy()
@@ -49,11 +50,15 @@ func on_enemy_converted() -> void:
 	update_score_counter()
 
 
+func on_game_end() -> void:
+	enemy_spawn_timer.stop()
+
 func on_player_hit() -> void:
 	if collected_flags.size():
 		lose_flag()
 	else:
-		print_debug("game over")
+		Global.game_over = true
+		on_game_end()
 
 
 func prepare_information_panel() -> void:

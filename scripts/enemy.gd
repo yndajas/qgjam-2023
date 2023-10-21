@@ -25,6 +25,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Global.game_over:
+		return
+
 	move_and_slide()
 
 	if !gun_has_entered_playable_area and !gun_is_out_of_bounds():
@@ -45,6 +48,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_fire_timer_timeout() -> void:
+	if Global.game_over:
+		return
+
 	fire()
 	start_fire_timer()
 
@@ -93,6 +99,9 @@ func on_gaysplosion_ended() -> void:
 
 
 func on_hit() -> void:
+	if Global.game_over:
+		return
+
 	straightness -= 1
 
 	if straightness == 3:

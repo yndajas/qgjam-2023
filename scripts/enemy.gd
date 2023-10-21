@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 const EXPECTED_EDGE_OFFSET: int = 48
+const EXPECTED_SPRITE_SIZE = 96
+const MINIMUM_SPAWN_Y = EXPECTED_EDGE_OFFSET + 24
+const MAXIMUM_SPAWN_Y = floor(Global.PLAYABLE_BOTTOM_EDGE / 2.0) - EXPECTED_SPRITE_SIZE
 const SPEED: float = 150.0
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]

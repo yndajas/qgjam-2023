@@ -1,6 +1,5 @@
 # To do
 
-- randomise height of enemy spawn within a range
 - instantiate enemy bullet on/near enemy instance
 - move enemy bullet instance down the screen
 - free/remove enemy bullet instance when off screen bottom
@@ -77,3 +76,4 @@
 - instantiate enemy as sprite 0 off screen left
 - spawn an enemy every N seconds
 - randomise time between enemy spawns within a range
+- randomise height of enemy spawn within a range

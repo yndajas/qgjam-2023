@@ -14,7 +14,9 @@ func _process(_delta: float) -> void:
 
 func spawn_enemy() -> void:
 	var enemy: CharacterBody2D = enemy_scene.instantiate()
-	enemy.global_position = Vector2(-enemy.EXPECTED_EDGE_OFFSET, enemy.EXPECTED_EDGE_OFFSET + 24)
+	enemy.global_position = Vector2(
+		-enemy.EXPECTED_EDGE_OFFSET, randf_range(enemy.MINIMUM_SPAWN_Y, enemy.MAXIMUM_SPAWN_Y)
+	)
 	get_tree().get_root().add_child.call_deferred(enemy)
 
 

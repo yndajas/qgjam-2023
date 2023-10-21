@@ -18,7 +18,6 @@
   - display prompt to return to main menu (circle/escape)
 - music
 - menu
-- change player sprite to Sprite2D?
 - change collision shape to collision polygon?
 
 ## Stretch goals
@@ -82,3 +81,4 @@
 - spawn enemies from both sides? How to manage overlap?
 - add player score variable
 - add player score indicator
+- change player sprite to Sprite2D

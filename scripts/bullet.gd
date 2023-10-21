@@ -3,14 +3,18 @@ extends RigidBody2D
 const PLAYABLE_BOTTOM_EDGE: int = 720
 const PLAYABLE_TOP_EDGE: int = 0
 const SPRITE_COUNT: int = 6
-@onready var sprite_size: int = $Sprite2D.get_rect().size[0]
-@onready var bullet_edge_offset: int = ceili(sprite_size / 2.0)
+const SPRITE_SCALE: int = 4
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite_size: float = sprite.get_rect().size[0]
+@onready var bullet_size: float = sprite_size * SPRITE_SCALE
+@onready var bullet_edge_offset: float = ceili(bullet_size / 2.0)
 
 enum Edge { BOTTOM, TOP }
 
 func _ready() -> void:
 	var sprite_index: int = randi() % SPRITE_COUNT
-	$Sprite2D.region_rect = Rect2(0, sprite_index * sprite_size, sprite_size, sprite_size)
+	sprite.region_rect = Rect2(0, sprite_index * sprite_size, sprite_size, sprite_size)
+	sprite.scale = Vector2(SPRITE_SCALE, SPRITE_SCALE)
 
 func _physics_process(_delta: float) -> void:
 	if is_off_screen():
@@ -25,5 +29,5 @@ func is_off_screen_bottom() -> bool:
 func is_off_screen_top() -> bool:
 	return y_position() + bullet_edge_offset < PLAYABLE_TOP_EDGE
 
-func y_position() -> int:
+func y_position() -> float:
 	return self.global_position[1]

@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-const SPEED = 600.0
-const PLAYABLE_LEFT_EDGE = 0
-const PLAYABLE_RIGHT_EDGE = 1280
-@onready var player_edge_offset: int = $AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", 0).get_size()[0] / 2
+const PLAYABLE_LEFT_EDGE: int = 0
+const PLAYABLE_RIGHT_EDGE: int = 1280
+const SPEED: float = 600.0
+@onready var player_edge_offset: float = $AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", 0).get_size()[0] / 2.0
 
 enum Edge { LEFT, RIGHT }
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 
 	if direction:
@@ -34,17 +34,17 @@ func reset_if_beyond_edge() -> void:
 		reset_to_edge(Edge.RIGHT)
 
 func reset_to_edge(edge: int) -> void:
-	var target_x_position: int
+	var target_x_position: float
 
 	if is_left_edge(edge):
-		target_x_position = PLAYABLE_LEFT_EDGE + player_edge_offset
+		target_x_position = ceil(PLAYABLE_LEFT_EDGE + player_edge_offset)
 	else:
-		target_x_position = PLAYABLE_RIGHT_EDGE - player_edge_offset
-		
-	self.global_position = Vector2(target_x_position, y_position()) 
+		target_x_position = floor(PLAYABLE_RIGHT_EDGE - player_edge_offset)
 
-func x_position() -> int:
+	self.global_position = Vector2(target_x_position, y_position())
+
+func x_position() -> float:
 	return self.global_position[0]
 
-func y_position() -> int:
+func y_position() -> float:
 	return self.global_position[1]

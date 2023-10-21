@@ -18,7 +18,7 @@ func _ready() -> void:
 	start_fire_timer()
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if is_off_screen():
@@ -26,6 +26,7 @@ func _physics_process(_delta: float) -> void:
 
 	if straightness == 0:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 2)
+		modulate.a -= delta
 
 
 func _on_fire_timer_timeout() -> void:

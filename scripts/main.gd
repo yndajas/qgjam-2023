@@ -3,9 +3,11 @@ extends Node2D
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var score: int = 0
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
+@onready var information_panel: ColorRect = $InformationPanel
 
 
 func _ready() -> void:
+	information_panel.size.x = Global.PLAYABLE_LEFT_EDGE
 	spawn_enemy()
 
 
@@ -25,7 +27,7 @@ func spawn_enemy() -> void:
 	enemy.global_position.y = randf_range(enemy.MINIMUM_SPAWN_Y, enemy.MAXIMUM_SPAWN_Y)
 	set_enemy_direction(enemy)
 	enemy.connect("converted", on_enemy_converted)
-	get_tree().get_root().add_child.call_deferred(enemy)
+	enemy_spawn_timer.add_sibling.call_deferred(enemy)
 
 
 func set_enemy_direction(enemy: CharacterBody2D) -> void:
@@ -36,7 +38,7 @@ func set_enemy_direction(enemy: CharacterBody2D) -> void:
 
 
 func set_enemy_direction_left(enemy: CharacterBody2D) -> void:
-	enemy.global_position.x = -enemy.EXPECTED_EDGE_OFFSET
+	enemy.global_position.x = Global.PLAYABLE_LEFT_EDGE - enemy.EXPECTED_EDGE_OFFSET
 	enemy.velocity.x = enemy.SPEED
 
 

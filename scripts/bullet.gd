@@ -1,7 +1,6 @@
 extends RigidBody2D
 
 enum Edge { BOTTOM, TOP }
-const EXPECTED_EDGE_OFFSET: int = 8
 const SPRITE_COUNT: int = 6
 const SPRITE_SCALE: int = 4
 var fire_sound: AudioStreamWAV
@@ -21,7 +20,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if is_off_screen():
+	if is_out_of_bounds():
 		queue_free()
 
 
@@ -54,15 +53,15 @@ func init(parent: CharacterBody2D, sound: AudioStreamWAV) -> void:
 	parent.get_tree().get_root().add_child(self)
 
 
-func is_off_screen() -> bool:
-	return is_off_screen_bottom() or is_off_screen_top()
+func is_out_of_bounds() -> bool:
+	return is_out_of_bounds_bottom() or is_out_of_bounds_top()
 
 
-func is_off_screen_bottom() -> bool:
+func is_out_of_bounds_bottom() -> bool:
 	return y_position() - edge_offset >= Global.PLAYABLE_BOTTOM_EDGE
 
 
-func is_off_screen_top() -> bool:
+func is_out_of_bounds_top() -> bool:
 	return y_position() + edge_offset <= Global.PLAYABLE_TOP_EDGE
 
 

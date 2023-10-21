@@ -10,12 +10,13 @@ const SPEED: float = 150.0
 @export var fire_sounds: Array[AudioStreamWAV]
 var gaysplosion_ended: bool = false
 var gaysplosion_scene: PackedScene = preload("res://scenes/gaysplosion.tscn")
+var gun_has_entered_playable_area: bool = false
 var straightness: int = 6
 @onready var fire_timer: Timer = $FireTimer
 @onready var converted_player: AudioStreamPlayer = $ConvertedPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_size: float = sprite.get_rect().size[0]
-@onready var enemy_edge_offset: float = ceilf(sprite_size / 2.0)
+@onready var edge_offset: float = ceilf(sprite_size / 2.0)
 
 
 func _ready() -> void:
@@ -25,7 +26,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 
-	if is_off_screen():
+	if !gun_has_entered_playable_area and !gun_is_out_of_bounds():
+		gun_has_entered_playable_area = true
+
+	if gun_has_entered_playable_area and gun_is_out_of_bounds():
+		fire_timer.stop()
+
+	if is_out_of_bounds():
 		queue_free()
 
 	if straightness == 0:
@@ -47,8 +54,28 @@ func fire() -> void:
 	bullet.init(self, fire_sounds[fire_sound_index])
 
 
-func is_off_screen() -> bool:
-	return x_position() - enemy_edge_offset >= Global.PLAYABLE_RIGHT_EDGE
+func gun_is_out_of_bounds() -> bool:
+	return gun_is_out_of_bounds_left() or gun_is_out_of_bounds_right()
+
+
+func gun_is_out_of_bounds_left() -> bool:
+	return x_position() - Global.EXPECTED_BULLET_EDGE_OFFSET < Global.PLAYABLE_LEFT_EDGE
+
+
+func gun_is_out_of_bounds_right() -> bool:
+	return x_position() + Global.EXPECTED_BULLET_EDGE_OFFSET > Global.PLAYABLE_RIGHT_EDGE
+
+
+func is_out_of_bounds() -> bool:
+	return is_out_of_bounds_left() or is_out_of_bounds_right()
+
+
+func is_out_of_bounds_left() -> bool:
+	return x_position() + edge_offset <= Global.PLAYABLE_LEFT_EDGE
+
+
+func is_out_of_bounds_right() -> bool:
+	return x_position() - edge_offset >= Global.PLAYABLE_RIGHT_EDGE
 
 
 func on_converted() -> void:

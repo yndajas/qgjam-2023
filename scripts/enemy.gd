@@ -21,6 +21,10 @@ func _physics_process(_delta: float) -> void:
 		queue_free()
 
 
+func _on_fire_timer_timeout() -> void:
+	print_debug("fire")
+
+
 func is_off_screen() -> bool:
 	return x_position() - enemy_edge_offset >= Global.PLAYABLE_RIGHT_EDGE
 

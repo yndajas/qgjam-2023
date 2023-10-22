@@ -62,8 +62,8 @@ theme = ExtResource("3_nln1n")
 theme_override_constants/line_separation = 8
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "[center]Reset: R/triangle
-Exit: Esc/options"
+text = "[center]Reset: R/square
+Exit: Esc/triangle"
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
 

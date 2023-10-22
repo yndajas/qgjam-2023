@@ -9,6 +9,8 @@ var alpha_decreasing: bool = true
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("start_game"):
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
+	elif Input.is_action_just_pressed("exit") and OS.has_feature("pc"):
+		get_tree().quit()
 
 	if alpha == 0:
 		alpha_decreasing = false

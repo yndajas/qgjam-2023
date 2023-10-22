@@ -24,6 +24,13 @@ func _ready() -> void:
 	player.connect("hit", on_player_hit)
 
 
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_pressed("exit"):
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	elif Input.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
+
+
 func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
 	enemy_spawn_timer.wait_time = randf_range(2, 6)

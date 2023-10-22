@@ -50,7 +50,7 @@ func init(parent: CharacterBody2D, sound: AudioStreamWAV) -> void:
 		reverse_direction()
 		sprite_index = SPRITE_COUNT
 
-	parent.get_tree().get_root().add_child(self)
+	parent.get_parent().add_child(self)
 
 
 func is_out_of_bounds() -> bool:

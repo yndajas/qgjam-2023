@@ -126,7 +126,7 @@ func play_gaysplosion() -> void:
 	var gaysplosion: CPUParticles2D = gaysplosion_scene.instantiate()
 	gaysplosion.global_position = Vector2(x_position(), y_position())
 	gaysplosion.connect("tree_exited", on_gaysplosion_ended)
-	get_tree().get_root().add_child(gaysplosion)
+	get_parent().add_child(gaysplosion)
 	gaysplosion.emitting = true
 
 

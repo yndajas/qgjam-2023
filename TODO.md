@@ -1,10 +1,5 @@
 # To do
 
-- game over state
-  - display count of new baby queers successfully converted
-  - display prompt to play again (square/R)
-  - display prompt to return to main menu (circle/escape)
-- menu
 - increase enemy spawn rate and/or bullet rate and/or speed over time
 - music
 
@@ -78,3 +73,5 @@
 - add player score variable
 - add player score indicator
 - change player sprite to Sprite2D
+- menu
+- game over state

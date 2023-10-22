@@ -51,7 +51,9 @@ func _on_fire_timer_timeout() -> void:
 	if Global.game_over:
 		return
 
-	fire()
+	if gun_has_entered_playable_area:
+		fire()
+
 	start_fire_timer()
 
 

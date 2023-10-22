@@ -7,6 +7,7 @@ var chaos_level: int = 0
 var collected_flags: Array[int]
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var flag_scene: PackedScene = preload("res://scenes/flag.tscn")
+var level_up_flash_count: int = 0
 var uncollected_flags: Array[int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 @onready var controls_text: RichTextLabel = $InformationPanel/ControlsText
 @onready var converts_count_text: RichTextLabel = $InformationPanel/ConvertsCountText
@@ -14,6 +15,8 @@ var uncollected_flags: Array[int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1
 @onready var game_over_text: RichTextLabel = $GameOverText
 @onready var game_over_text_flash_timer: Timer = $GameOverText/FlashTimer
 @onready var information_panel: ColorRect = $InformationPanel
+@onready var level_up_text: RichTextLabel = $LevelUpText
+@onready var level_up_text_flash_timer: Timer = $LevelUpText/FlashTimer
 @onready var player: CharacterBody2D = $Player
 @onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
@@ -52,6 +55,20 @@ func _on_game_over_flash_timer_timeout() -> void:
 		game_over_text_flash_timer.start(0.85)
 
 
+func _on_level_up_flash_timer_timeout() -> void:
+	level_up_text.set_visible(!level_up_text.visible)
+	level_up_flash_count += 1
+
+	if level_up_flash_count == 6:
+		level_up_flash_count = 0
+		return
+
+	if level_up_text.visible:
+		level_up_text_flash_timer.start(0.8)
+	else:
+		level_up_text_flash_timer.start(0.4)
+
+
 func collect_flag() -> void:
 	var index = randi_range(0, uncollected_flags.size() - 1)
 	var collected_flag = uncollected_flags[index]
@@ -69,6 +86,9 @@ func increment_chaos_level() -> void:
 		sfx_player.stream = maximum_level_sound
 	else:
 		sfx_player.stream = level_up_sounds.pick_random()
+		level_up_text.set_visible(true)
+		level_up_flash_count += 1
+		level_up_text_flash_timer.start()
 
 	sfx_player.play()
 

@@ -84,7 +84,24 @@ bbcode_enabled = true
 text = "[center]Game over"
 
 [node name="FlashTimer" type="Timer" parent="GameOverText"]
-wait_time = 1.5
+wait_time = 3.0
+one_shot = true
+
+[node name="LevelUpText" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 942.0
+offset_top = 24.0
+offset_right = 1256.0
+offset_bottom = 72.0
+theme = ExtResource("3_nln1n")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]Level up"
+
+[node name="FlashTimer" type="Timer" parent="LevelUpText"]
+wait_time = 0.75
+one_shot = true
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="GameOverText/FlashTimer" to="." method="_on_game_over_flash_timer_timeout"]
+[connection signal="timeout" from="LevelUpText/FlashTimer" to="." method="_on_level_up_flash_timer_timeout"]

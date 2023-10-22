@@ -10,12 +10,12 @@ Made for [The Queerness and Games Jam 2023][qgjam-2023]
 
 ## Credits
 
+[Explosion sprite sheet][explosion-sprite-sheet] and [guide][explosion-tutorial]
+by [PlayWithFurcifer][play-with-furcifer]
+
 [Flag sprites][flag-sprites] by [Rob Mocci][rob-mocci]
 
 [Font][pixel-font] by Jayvee Enaguas
-
-[Explosion sprite sheet][explosion-sprite-sheet] and [guide][explosion-tutorial]
-by [PlayWithFurcifer][play-with-furcifer]
 
 Voiceover and sound effects by Weli Yu and Ynda Jas (they/them)
 

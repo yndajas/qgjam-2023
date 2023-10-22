@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://debfo5mxc2dy"]
+
+[ext_resource type="Texture2D" uid="uid://byn1h5gyio76d" path="res://assets/images/sprites/player.png" id="1_dxvlo"]
+[ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="2_2efvm"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(640, 242)
+scale = Vector2(4, 4)
+texture = ExtResource("1_dxvlo")
+
+[node name="TitleText" type="RichTextLabel" parent="."]
+offset_top = 482.0
+offset_right = 1280.0
+offset_bottom = 530.0
+theme = ExtResource("2_2efvm")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]Gay Ray"
+
+[node name="ControlsText" type="RichTextLabel" parent="."]
+offset_left = 24.0
+offset_top = 578.0
+offset_right = 1256.0
+offset_bottom = 698.0
+theme = ExtResource("2_2efvm")
+theme_override_constants/line_separation = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Press enter/space/X/options to start
+
+  Left/right = move    R/square = restart
+  Space/up/X = shoot          Esc = exit        "
+
+[node name="CreditsText1" type="RichTextLabel" parent="."]
+offset_left = 102.0
+offset_top = 146.0
+offset_right = 346.0
+offset_bottom = 338.0
+theme = ExtResource("2_2efvm")
+theme_override_constants/line_separation = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Explosion sprites 
+    PlayWithFurcifer
+
+Flag sprites
+    Rob Mocci
+
+Font
+    Jayvee Enaguas"
+
+[node name="CreditsText2" type="RichTextLabel" parent="."]
+offset_left = 905.0
+offset_top = 170.0
+offset_right = 1207.0
+offset_bottom = 314.0
+theme = ExtResource("2_2efvm")
+theme_override_constants/line_separation = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Voiceover/sound effects
+    Weli Yu
+    Ynda Jas (they/them)
+
+The rest
+    Ynda Jas (they/them)"

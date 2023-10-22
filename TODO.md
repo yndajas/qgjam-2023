@@ -1,9 +1,8 @@
 # To do
 
-- music
-
 ## Stretch goals
 
+- music
 - change collision shape to collision polygon?
 - show controls in HUD
 - add count up timer

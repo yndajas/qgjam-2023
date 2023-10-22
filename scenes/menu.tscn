@@ -28,7 +28,7 @@ offset_right = 1256.0
 offset_bottom = 602.0
 theme = ExtResource("2_2efvm")
 bbcode_enabled = true
-text = "[center]Press enter/space/X/options to start"
+text = "[center]Press enter/options to start"
 
 [node name="GameControlsText" type="RichTextLabel" parent="."]
 offset_left = 24.0

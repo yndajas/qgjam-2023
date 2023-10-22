@@ -1,12 +1,13 @@
 extends Node2D
 
 @export var game_over_sounds: Array[AudioStreamWAV]
+@export var level_up_sounds: Array[AudioStreamWAV]
+@export var maximum_level_sound: AudioStreamWAV
 var chaos_level: int = 0
 var collected_flags: Array[int]
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var flag_scene: PackedScene = preload("res://scenes/flag.tscn")
 var uncollected_flags: Array[int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-var score: int = 0
 @onready var controls_text: RichTextLabel = $InformationPanel/ControlsText
 @onready var converts_count_text: RichTextLabel = $InformationPanel/ConvertsCountText
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
@@ -20,6 +21,7 @@ var score: int = 0
 func _ready() -> void:
 	Global.chaos_level = 0
 	Global.game_over = false
+	Global.score = 0
 	uncollected_flags.shuffle()
 	prepare_information_panel()
 	spawn_enemy()
@@ -60,6 +62,17 @@ func collect_flag() -> void:
 	render_flags()
 
 
+func increment_chaos_level() -> void:
+	Global.chaos_level += 1
+
+	if Global.chaos_level == Global.MAXIMUM_CHAOS_LEVEL:
+		sfx_player.stream = maximum_level_sound
+	else:
+		sfx_player.stream = level_up_sounds.pick_random()
+
+	sfx_player.play()
+
+
 func lose_flag() -> void:
 	var flag = collected_flags.pop_back()
 	var index_to_insert_at: int = randi_range(0, uncollected_flags.size())
@@ -68,10 +81,10 @@ func lose_flag() -> void:
 
 
 func on_enemy_converted() -> void:
-	score += 1
+	Global.score += 1
 
-	if Global.chaos_level < 15 and score % 5 == 0:
-		Global.chaos_level += 1
+	if Global.chaos_level < 15 and Global.score % 5 == 0:
+		increment_chaos_level()
 
 	if collected_flags.size() < 14:
 		collect_flag()
@@ -166,4 +179,4 @@ func set_enemy_direction_right(enemy: CharacterBody2D) -> void:
 
 
 func update_score_counter() -> void:
-	converts_count_text.text = "[center]" + "%04d" % score
+	converts_count_text.text = "[center]" + "%04d" % Global.score

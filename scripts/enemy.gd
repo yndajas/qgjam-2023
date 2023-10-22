@@ -92,8 +92,10 @@ func on_converted() -> void:
 	fire_timer.stop()
 	set_collision_layer_value(2, false)
 	play_gaysplosion()
-	play_converted_sound()
 	emit_signal("converted")
+
+	if Global.score % 5 > 0:
+		play_converted_sound()
 
 
 func on_gaysplosion_ended() -> void:

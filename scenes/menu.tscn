@@ -22,18 +22,16 @@ bbcode_enabled = true
 text = "[center]Gay Ray"
 
 [node name="StartControlsText" type="RichTextLabel" parent="."]
-offset_left = 24.0
 offset_top = 578.0
-offset_right = 1256.0
+offset_right = 1280.0
 offset_bottom = 602.0
 theme = ExtResource("2_2efvm")
 bbcode_enabled = true
 text = "[center]Press enter/options to start"
 
 [node name="GameControlsText" type="RichTextLabel" parent="."]
-offset_left = 24.0
 offset_top = 648.0
-offset_right = 1256.0
+offset_right = 1280.0
 offset_bottom = 696.0
 theme = ExtResource("2_2efvm")
 theme_override_constants/line_separation = 8

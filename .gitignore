@@ -1,4 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 
+# Audacity temp files
+*.aup3-wal
+
 node_modules

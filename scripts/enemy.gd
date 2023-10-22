@@ -133,7 +133,7 @@ func play_gaysplosion() -> void:
 
 
 func start_fire_timer() -> void:
-	fire_timer.wait_time = randf_range(0.5, 2)
+	fire_timer.wait_time = randf_range(Global.chaos_bound(0.5, 0.01), Global.chaos_bound(2, 0.15))
 	fire_timer.start()
 
 

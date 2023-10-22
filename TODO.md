@@ -1,6 +1,5 @@
 # To do
 
-- increase enemy spawn rate and/or bullet rate and/or speed over time
 - music
 
 ## Stretch goals
@@ -75,3 +74,4 @@
 - change player sprite to Sprite2D
 - menu
 - game over state
+- increase enemy spawn rate and/or bullet rate and/or speed over time

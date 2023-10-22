@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var game_over_sounds: Array[AudioStreamWAV]
+var chaos_level: int = 0
 var collected_flags: Array[int]
 var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var flag_scene: PackedScene = preload("res://scenes/flag.tscn")
@@ -17,6 +18,7 @@ var score: int = 0
 
 
 func _ready() -> void:
+	Global.chaos_level = 0
 	Global.game_over = false
 	uncollected_flags.shuffle()
 	prepare_information_panel()
@@ -33,7 +35,9 @@ func _physics_process(_delta: float) -> void:
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
-	enemy_spawn_timer.wait_time = randf_range(2, 6)
+	enemy_spawn_timer.wait_time = randf_range(
+		Global.chaos_bound(1.5, 0.025), Global.chaos_bound(3, 0.2)
+	)
 	enemy_spawn_timer.start()
 
 
@@ -65,6 +69,10 @@ func lose_flag() -> void:
 
 func on_enemy_converted() -> void:
 	score += 1
+
+	if Global.chaos_level < 15 and score % 5 == 0:
+		Global.chaos_level += 1
+
 	if collected_flags.size() < 14:
 		collect_flag()
 	update_score_counter()

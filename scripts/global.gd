@@ -1,5 +1,6 @@
 extends Node
 
+const CHAOS_LEVELS: int = 20
 const CHARACTER_GUN_OFFSET: int = 40
 const EXPECTED_BULLET_EDGE_OFFSET: int = 8
 const FLAG_SCALE: int = 4
@@ -29,4 +30,10 @@ const EXPECTED_FLAG_AREA_END_Y: int = (
 	)
 )
 var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+var chaos_level: int = 0
 var game_over: bool = false
+
+
+func chaos_bound(start_bound: float, minimum_bound: float) -> float:
+	var step: float = (start_bound - minimum_bound) / CHAOS_LEVELS
+	return start_bound - step * chaos_level

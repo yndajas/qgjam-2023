@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Gay Ray"
-version = "0.0.1"
+version = "1.0.0"
 description = ""
 authors = ["Ynda Jas <yndajas@gmail.com>"]
 

@@ -8,7 +8,23 @@ straights might take over 😱
 
 Made for [The Queerness and Games Jam 2023][qgjam-2023]
 
-## Controls
+## Playthrough
+
+A playthrough of the game is [available on YouTube][playthrough]
+
+[![Menu screen showing a large version of the player sprite, as well as the title, credits, and controls][thumbnail]][playthrough]
+
+## How to play
+
+You can play the game on the web, or download a copy for macOS, Windows or Linux
+at [yndajas.itch.io/gay-ray][itch-io-page]
+
+Note that - due an issue with the engine - the web build may be slow to load on
+macOS, and may stall the first time an effect is rendered. It should play
+without issue once loaded and after rendering the first effect. The desktop
+macOS app should run without issue
+
+### Controls
 
 | Action     | Keyboard\*     | Controller                                                                                                           |
 | ---------- | -------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -42,9 +58,12 @@ The rest by [Ynda Jas][ynda-jas] (they/them)
 [explosion-sprite-sheet]: https://github.com/PlayWithFurcifer/godot-particle-systems-guide/blob/main/Explosion_Sheet.png
 [explosion-tutorial]: https://www.youtube.com/watch?v=F1Fyj3Lh_Pc&t=253s
 [flag-sprites]: https://rmocci.itch.io/pixel-special
+[itch-io-page]: https://yndajas.itch.io/gay-ray
 [play-with-furcifer]: https://github.com/PlayWithFurcifer
 [pixel-font]: https://www.dafont.com/pixel-operator.font
+[playthrough]: https://www.youtube.com/watch?v=8Z1IYclXoVs
 [qgjam-2023]: https://itch.io/jam/qgjam-2023
 [rob-mocci]: https://rmocci.itch.io
+[thumbnail]: ./assets/promo/menu.png
 [ynda-jas]: https://github.com/yndajas
 <!-- prettier-ignore-end -->
